@@ -8,7 +8,7 @@ node {
     }
     stage('SonarQube analysis') {
                     withSonarQubeEnv('sonarserver') {
-			sh "npm run build"
+			sh "npm install"
                         sh "npm run sonar-scanner"
                     }
             }
