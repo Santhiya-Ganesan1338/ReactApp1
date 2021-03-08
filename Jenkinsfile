@@ -7,14 +7,14 @@ node {
         checkout scm
     }
     stage('SonarQube analysis') {
-                steps {
+                step {
                     withSonarQubeEnv('sonarserver') {
                         sh "npm run sonar-scanner"
                     }
                 }
             }
             stage("Quality gate") {
-                steps {
+                step {
                     waitForQualityGate abortPipeline: true
                 }
             }
